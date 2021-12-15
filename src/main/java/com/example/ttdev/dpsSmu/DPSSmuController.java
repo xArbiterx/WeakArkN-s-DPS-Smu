@@ -1,6 +1,6 @@
 package com.example.ttdev.dpsSmu;
 
-import com.example.ttdev.dpsSmu.utils.DPSCalculator;
+import com.example.ttdev.dpsSmu.utils.DamageCalculator;
 import com.example.ttdev.dpsSmu.vo.NormalDPSModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +10,7 @@ public class DPSSmuController {
 
     @GetMapping("normalDps")
     public String index(NormalDPSModel model) {
-        double dps = DPSCalculator.normalAvgCalculator(
+        double dps = DamageCalculator.normalDPSCalculator(
                 model.getAtk(),
                 model.getAtkInterval(),
                 model.getSeconds(),
