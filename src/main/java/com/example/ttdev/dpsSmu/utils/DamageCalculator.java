@@ -13,23 +13,8 @@ public class DamageCalculator {
      * @return
      */
     public static double normalDPSCalculator(int atk, double atkInterval, int seconds, int shield, boolean isMage) {
-        int atkTimes = (int) (seconds / atkInterval);
-        double polishingDamage = atk * polishingPercent;
-        double realDamage = 0;
-        if (isMage) {
-            if (shield > 100) {
-                shield = 100;
-            }
-            double damagePercent = (100 - shield) / 100.0;
-            realDamage = atk * damagePercent;
-        } else {
-            realDamage = atk - shield;
-        }
-        if (polishingDamage > realDamage) {
-            realDamage = polishingDamage;
-        }
-
-        return realDamage * atkTimes / seconds;
+        double totalDamage = normalTotalDamageCalculator(atk, atkInterval, seconds, shield, isMage);
+        return totalDamage / seconds;
     }
 
     /**
@@ -53,9 +38,8 @@ public class DamageCalculator {
         } else {
             realDamage = atk - shield;
         }
-        if (polishingDamage > realDamage) {
-            realDamage = polishingDamage;
-        }
+
+        realDamage = Math.max(realDamage, polishingDamage);
 
         return realDamage * atkTimes;
     }
