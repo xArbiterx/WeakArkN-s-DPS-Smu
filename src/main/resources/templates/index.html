@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="_shared/head :: head"></head>
+
+<body>
+<header th:replace="_shared/header :: header"></header>
+<h1>Welcome to the fucking calculator!</h1>
+
+<div class="form-group">
+    <div class="col-xs-2">
+        <select name="JobClass" class="form-select form-select-xs" style="width:auto;">
+            <option th:each="job : ${T(com.example.ttdev.dpsSmu.enums.JobClass).values()}"
+                    th:value="${job}" th:text="${job}"></option>
+        </select>
+    </div>
+    <div class="col-xs-2">
+        <select name="JobClass" class="form-select form-select-xs" style="width:auto;">
+            <option th:each="job : ${T(com.example.ttdev.dpsSmu.enums.JobClass).values()}"
+                    th:value="${job}" th:text="${job}"></option>
+        </select>
+    </div>
+    <div class="col-xs-2">
+        <select name="JobClass" class="form-select form-select-xs" style="width:auto;">
+            <option th:each="job : ${T(com.example.ttdev.dpsSmu.enums.JobClass).values()}"
+                    th:value="${job}" th:text="${job}"></option>
+        </select>
+    </div>
+</div>
+
+
+<div class="card bg-primary col-6">
+    <h5 class="card-header">常态</h5>
+    <div class="card-body bg-light">
+        <div class="mb-3">
+            <label for="atk" class="form-label">攻击力</label>
+            <input th:type="text" class="form-control" id="atk">
+        </div>
+        <div class="mb-3">
+            <label for="atkAddPer" class="form-label">攻击力百分比提升</label>
+            <input th:type="text" class="form-control" id="atkAddPer">
+        </div>
+        <div class="mb-3">
+            <label for="atkAddPerTo" class="form-label">攻击力提升至</label>
+            <input th:type="text" class="form-control" id="atkAddPerTo">
+        </div>
+        <div class="mb-3">
+            <label for="atkSpeedAdd" class="form-label">攻速提升</label>
+            <input th:type="text" class="form-control" id="atkSpeedAdd">
+        </div>
+    </div>
+</div>
+<div class="card bg-success col-6">
+    <h5 class="card-header">技能</h5>
+    <div class="card-body bg-light">
+        <div class="mb-3">
+            <label for="atkAddPerSki" class="form-label">攻击力百分比提升</label>
+            <input th:type="text" class="form-control" id="atkAddPerSki">
+        </div>
+        <div class="mb-3">
+            <label for="atkAddPerToSki" class="form-label">攻击力提升至</label>
+            <input th:type="text" class="form-control" id="atkAddPerToSki">
+        </div>
+        <div class="mb-3">
+            <label for="atkSpeedAddSki" class="form-label">攻速提升</label>
+            <input th:type="text" class="form-control" id="atkSpeedAddSki">
+        </div>
+        <div class="mb-3">
+            <label for="firstCDAdd" class="form-label">初动</label>
+            <input th:type="text" class="form-control" id="firstCDAdd">
+        </div>
+        <div class="mb-3">
+            <label for="time" class="form-label">持续时间</label>
+            <input th:type="text" class="form-control" id="time">
+        </div>
+        <div class="mb-3">
+            <label for="CD" class="form-label">冷却时间</label>
+            <input th:type="text" class="form-control" id="CD">
+        </div>
+    </div>
+</div>
+<div class="card bg-warning col-6">
+    <h5 class="card-header">敌人</h5>
+    <div class="card-body bg-light">
+        <div class="mb-3">
+            <label for="def" class="form-label">防御</label>
+            <input th:type="text" class="form-control" id="def">
+        </div>
+        <div class="mb-3">
+            <label for="magicDef" class="form-label">法抗</label>
+            <input th:type="text" class="form-control" id="magicDef">
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-sm btn-primary">calculate</button>
+
+<footer th:replace="_shared/footer :: footer"></footer>
+</body>
+
+</html>
